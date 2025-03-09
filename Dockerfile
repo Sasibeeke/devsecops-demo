@@ -1,5 +1,7 @@
 # Build stage
 FROM node:20-alpine3.21 AS build
+RUN apk update && apk upgrade
+RUN apk add --upgrade libxml2
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
